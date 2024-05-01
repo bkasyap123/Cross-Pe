@@ -8,4 +8,10 @@ const connection = mysql.createConnection({
   port: process.env.DB_PORT || 3306
 });
 
+connection.addListener("error", (err) => {
+  if (err instanceof Error) {
+    console.log(`Got an createConnection error:`, err);
+  }
+});
+
 export default connection;
