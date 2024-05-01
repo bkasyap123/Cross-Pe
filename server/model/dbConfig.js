@@ -1,17 +1,11 @@
-import mysql from "mysql2";
+import mongoose from "mongoose";
 
-const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  database: "EasyPayZ",
-  password: process.env.DB_PWD,
-  port: 3306,
-});
+dbConfig().catch((err) => console.log(err));
 
-connection.addListener("error", (err) => {
-  if (err instanceof Error) {
-    console.log(`Got an createConnection error:`, err);
-  }
-});
+async function dbConfig() {
+  await mongoose.connect(
+    `mongodb+srv://${process.env.MONGO_UNAME}:${process.env.MONGO_PWD}@easypayz.qxl1w3d.mongodb.net/?retryWrites=true&w=majority&appName=easypayz`
+  );
+}
 
-export default connection;
+export default dbConfig;

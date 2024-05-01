@@ -5,19 +5,15 @@ import api from "../workers/api.js";
 function Dashboard() {
   const [data, setData] = useState({ email: "", phone: "" });
   const navigate = useNavigate();
+
   useEffect(() => {
     api
       .get("/dashboard")
       .then((res) => {
-        // setData({
-        //   email: res.data.User.email || res.data.User[0].email,
-        //   phone: res.data.User.phone || res.data.User[0].phone,
-        // });
         setData({
           email: res.data?.User.email || res.data?.User[0].email,
           phone: res.data?.User.phone || res.data?.User[0].phone,
         });
-        console.log(res.data);
       })
       .catch((err) => {
         err.response.data === "Unauthorized User" ? navigate("/login") : "";

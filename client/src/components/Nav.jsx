@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { MdOutlineMenu } from "react-icons/md";
 import { useState } from "react";
+import useAuth from "../authStore/zustAuth.jsx";
+import Logout from "./Logout.jsx";
 
 function Nav() {
   const [expand, setExpand] = useState(false);
+  const { isLoggedIn } = useAuth();
 
   const handleNav = () => {
     setExpand(!expand);
@@ -22,16 +25,22 @@ function Nav() {
             : `max-lg:hidden`
         }`}
       >
-        <Link to="/login">
-          <button className="px-4 lg:px-8 py-2 m-1 text-[16px] border-black border-2 font-semibold rounded-full">
-            Login
-          </button>
-        </Link>
-        <Link to="/register">
-          <button className="border-green-400 lg:px-8 border-2 px-4 py-2 m-1 text-[16px] text-green-400 font-semibold rounded-full">
-            Register
-          </button>
-        </Link>
+        {isLoggedIn ? (
+          <Logout />
+        ) : (
+          <>
+            <Link to="/login">
+              <button className="px-4 lg:px-8 py-2 m-1 text-[16px] border-black border-2 font-semibold rounded-full">
+                Login
+              </button>
+            </Link>
+            <Link to="/register">
+              <button className="border-green-400 lg:px-8 border-2 px-4 py-2 m-1 text-[16px] text-green-400 font-semibold rounded-full">
+                Register
+              </button>
+            </Link>
+          </>
+        )}
       </div>
       <MdOutlineMenu onClick={handleNav} fontSize={25} className="lg:hidden" />
     </div>

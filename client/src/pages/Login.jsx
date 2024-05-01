@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../workers/api.js";
+import useAuth from "../authStore/zustAuth.jsx";
 
 function Login() {
   const [data, setData] = useState({ email: "", pwd: "" });
   const navigate = useNavigate();
+  const { setLoggedIn } = useAuth();
 
   const handleSubmit = () => {
     api
       .post("/login", data)
       .then((res) => {
-        res.data == "Login Successful" ? navigate("/user/dashboard") : "";
+        if (!res.data == "Login Successful") return navigate("/login");
+        setLoggedIn(true);
         setData({ email: "", pwd: "" });
+        navigate("/user/dashboard");
       })
       .catch((err) => {
         console.log(err);
