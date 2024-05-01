@@ -23,6 +23,6 @@ app.use((error, req, res, next) => {
   next();
 });
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log(`Server listening to port ${process.env.PORT}`);
 });
