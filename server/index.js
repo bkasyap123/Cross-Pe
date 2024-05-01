@@ -7,7 +7,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://easypayz.onrender.com", "http://localhost:3000"],
+    origin: ["https://easypayz.onrender.com", "https://easypayz.vercel.app"],
     credentials: true,
   })
 );
