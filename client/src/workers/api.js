@@ -1,7 +1,7 @@
 import axios from "axios";
 
 let api = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://easypayz.onrender.com",
   withCredentials: true,
 });
 
