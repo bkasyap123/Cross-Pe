@@ -5,7 +5,7 @@ const connection = mysql.createConnection({
   user: "root",
   database: "EasyPayZ",
   password: process.env.DB_PWD,
-  port: process.env.DB_PORT || 3306
+  port: 3306,
 });
 
 connection.addListener("error", (err) => {
