@@ -7,7 +7,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:2000"],
+    origin: ["http://localhost:5173", "https://easypayz.onrender.com"],
     credentials: true,
   })
 );
