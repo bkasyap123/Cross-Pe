@@ -10,7 +10,7 @@ function Login() {
 
   const handleSubmit = () => {
     api
-      .post("/login", data)
+      .post("/login", data, {withCredentials: true})
       .then((res) => {
         if (!res.data == "Login Successful") return navigate("/login");
         setLoggedIn(true);
