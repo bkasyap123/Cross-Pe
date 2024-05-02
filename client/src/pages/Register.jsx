@@ -10,7 +10,7 @@ function Register() {
 
   const handleSubmit = () => {
     api
-      .post("/signup", data)
+      .post("/signup", data, {withCredentials: true})
       .then((res) => {
         if (!res.data == "Registration Successful") return navigate("/signup");
         setLoggedIn(true);
