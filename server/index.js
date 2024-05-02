@@ -12,6 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", userRoute);
 
+app.get('/health', (req, res) => {
+  res.status(200).json({success: 'Health is Ok'})
+})
+
 app.use((error, req, res, next) => {
   let { message } = error;
   console.log(`You got an Error: ${message}`);
