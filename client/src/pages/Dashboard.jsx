@@ -18,7 +18,8 @@ function Dashboard() {
         });
       })
       .catch((err) => {
-        err.response.data === "Unauthorized User" ? navigate("/login") : "";
+        // err.response.data === "Unauthorized User" ? navigate("/login") : "";
+        console.log(err);
       });
   }, []);
   return (
