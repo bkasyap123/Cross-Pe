@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 
 const isAuthenticated = (req, res, next) => {
   let tkn = req.cookies.token;
-  if (!tkn) return res.status(401).send("Unauthorized User");
+  if (!tkn) return console.log('token not found'), res.status(401).send("Unauthorized User");
 
   try {
     jwt.verify(tkn, process.env.JWT_SECRET, (error, decoded) => {
