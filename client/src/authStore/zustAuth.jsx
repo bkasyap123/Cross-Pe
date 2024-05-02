@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 const useAuth = create((set) => ({
-  isLoggedIn: !!document.cookie.slice(6),
+  isLoggedIn: !!document.cookie.includes("token"),
   setLoggedIn: (loggedIn) => set({ isLoggedIn: loggedIn }),
 }));
 

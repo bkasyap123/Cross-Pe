@@ -15,6 +15,7 @@ function Register() {
         if (!res.data == "Registration Successful") return navigate("/signup");
         setLoggedIn(true);
         setData({ email: "", pwd: "", phone: "" });
+        navigate("/user/dashboard");
       })
       .catch((err) => {
         console.error(err);

@@ -7,7 +7,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "http://localhost:3000"],
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );
@@ -16,6 +16,10 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/", userRoute);
+
+app.get("/health", (req, res) => {
+  res.status(200).json({ success: "Health is Ok" });
+});
 
 app.use((error, req, res, next) => {
   let { message } = error;
