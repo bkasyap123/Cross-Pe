@@ -5,12 +5,7 @@ import "dotenv/config";
 import userRoute from "./routes/userRoutes.js";
 const app = express();
 
-app.use(
-  cors({
-    origin: ["https://easypayz.onrender.com", "https://easypayz.vercel.app"],
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
