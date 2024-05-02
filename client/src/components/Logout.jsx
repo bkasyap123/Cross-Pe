@@ -6,7 +6,7 @@ function Logout() {
 
   const handleLogout = () => {
     api
-      .post("/logout")
+      .post("/logout", {}, {withCredentials: true})
       .then((res) => {
         setLoggedIn(false);
       })
