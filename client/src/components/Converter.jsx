@@ -1,5 +1,5 @@
 import Freecurrencyapi from "@everapi/freecurrencyapi-js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const freecurrencyapi = new Freecurrencyapi(import.meta.env.VITE_API_KEY);
 
 function Converter() {
@@ -9,8 +9,8 @@ function Converter() {
   const [receive, setReceive] = useState(0);
   const [forex, setForex] = useState(0);
 
-  let weekDay = [
-    "Sundary",
+  const weekDay = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
@@ -18,9 +18,11 @@ function Converter() {
     "Friday",
     "Saturday",
   ];
-  let time = new Date().getDay() + 2;
 
-  const calculate = () => {
+  let today = (new Date().getDay() + 2) % 7;
+
+  // const calculate = () => {
+  useEffect(() => {
     freecurrencyapi
       .latest({
         base_currency: `${currency}`,
@@ -34,7 +36,8 @@ function Converter() {
       .catch((err) => {
         console.log(err);
       });
-  };
+  }, [send]);
+  // };
   return (
     <div className=" bg-white shadow-xl mx-4 mt-10 text-[14px] p-4 rounded-2xl sm:max-w-[330px] sm:text-[18px]">
       <p className="text-sm mb-2 text-gray-900">You sent</p>
@@ -102,13 +105,13 @@ function Converter() {
       </div>
       <p className="text-sm">
         Should arrive by&nbsp;
-        <strong className="opacity-75">{weekDay[time]}</strong>
+        <strong className="opacity-75">{weekDay[today]}</strong>
       </p>
       <button
-        onClick={calculate}
+        // onClick={calculate}
         className="bg-green-400 mt-4 w-full  max-sm:w-full px-6 py-2 text-[16px] text-black font-semibold rounded-full"
       >
-        Convert now
+        Transfer now
       </button>
     </div>
   );

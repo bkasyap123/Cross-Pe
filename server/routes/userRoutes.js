@@ -1,7 +1,7 @@
 import express from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import dbConfig from "../model/dbConfig.js";
+// import dbConfig from "../model/dbConfig.js";
 import { User } from "../model/userModal.js";
 import isAuthenticated from "../controllers/authController.js";
 const userRoute = express.Router();
@@ -26,7 +26,11 @@ userRoute.post("/signup", async (req, res, next) => {
     let tkn = jwt.sign({ User: newUser }, process.env.JWT_SECRET, {
       expiresIn: 3 * 24 * 60 * 60 * 1000,
     });
-    let opts = { maxAage: 3 * 24 * 60 * 60 * 1000, httpOnly: true, secure: true };
+    let opts = {
+      maxAage: 3 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+      secure: true,
+    };
     res.cookie("token", tkn, opts).send("Registration Successful");
   } catch (error) {
     next(error);
@@ -47,7 +51,11 @@ userRoute.post("/login", async (req, res, next) => {
       let tkn = jwt.sign({ User: theUser }, process.env.JWT_SECRET, {
         expiresIn: 3 * 24 * 60 * 60 * 1000,
       });
-      let opts = { maxAage: 3 * 24 * 60 * 60 * 1000, httpOnly: true, secure: true };
+      let opts = {
+        maxAage: 3 * 24 * 60 * 60 * 1000,
+        httpOnly: true,
+        secure: true,
+      };
       res.cookie("token", tkn, opts).send("Login Successful");
     }
   } catch (error) {
