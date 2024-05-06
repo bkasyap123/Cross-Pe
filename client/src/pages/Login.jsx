@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import api from "../workers/api.js";
-// import useAuth from "../authStore/zustAuth.jsx";
+
 
 function Login() {
-  // const [data, setData] = useState({ email: "", pwd: "" });
+
   const navigate = useNavigate();
-  // const { setLoggedIn } = useAuth();
+
 
   const handleSubmit = () => {
     navigate("/user/dashboard");
