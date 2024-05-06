@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 // import useAuth from "../authStore/zustAuth.jsx";
 
 function Login() {
-  const [data, setData] = useState({ email: "", pwd: "" });
+  // const [data, setData] = useState({ email: "", pwd: "" });
   const navigate = useNavigate();
   // const { setLoggedIn } = useAuth();
 
@@ -16,15 +16,15 @@ function Login() {
       <h2 className="text-center font-bold">LOGIN</h2>
       <input
         type="email"
-        value={data.email}
-        onChange={(e) => setData({ ...data, email: e.target.value })}
+        // value={data.email}
+        // onChange={(e) => setData({ ...data, email: e.target.value })}
         placeholder="Email"
         className="border hover:rounded-sm rounded-sm hover:outline-black outline-none px-1 py-1"
       />
       <input
         type="password"
-        value={data.pwd}
-        onChange={(e) => setData({ ...data, pwd: e.target.value })}
+        // value={data.pwd}
+        // onChange={(e) => setData({ ...data, pwd: e.target.value })}
         placeholder="Password"
         className="border hover:rounded-sm rounded-sm hover:outline-black outline-none px-1 py-1"
       />
