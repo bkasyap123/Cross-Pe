@@ -1,9 +1,7 @@
 import express from "express";
 import bcrypt from "bcryptjs";
-// import jwt from "jsonwebtoken";
-// import dbConfig from "../model/dbConfig.js";
+import dbConfig from "../model/dbConfig.js";
 import { User } from "../model/userModal.js";
-// import isAuthenticated from "../controllers/authController.js";
 const userRoute = express.Router();
 
 userRoute.post("/signup", async (req, res, next) => {
@@ -16,12 +14,12 @@ userRoute.post("/signup", async (req, res, next) => {
       return res.status(400).send("User already Exist!");
 
     let hashedPwd = bcrypt.hashSync(pwd, 10);
-    await User.create({
+    let newUser = new User({
       email: email,
       pwd: hashedPwd,
       phone: phone,
     });
-
+    await newUser.save();
     res.status(200).send("Registration Successful");
   } catch (error) {
     next(error);
