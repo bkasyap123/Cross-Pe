@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../workers/api.js";
-import useAuth from "../authStore/zustAuth.jsx";
+// import useAuth from "../authStore/zustAuth.jsx";
 
 function Dashboard() {
-  const [data, setData] = useState({ email: "", phone: "" });
+  // const [data, setData] = useState({ email: "", phone: "" });
   const navigate = useNavigate();
-  const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
 
   useEffect(() => {
     api
       .get("/dashboard")
       .then((res) => {
-        setData({
-          email: res.data?.User.email || res.data?.User[0].email,
-          phone: res.data?.User.phone || res.data?.User[0].phone,
-        });
+        console.log(res.data);
       })
       .catch((err) => {
         // err.response.data === "Unauthorized User" ? navigate("/login") : "";

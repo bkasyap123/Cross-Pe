@@ -1,25 +1,15 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import api from "../workers/api.js";
-import useAuth from "../authStore/zustAuth.jsx";
+// import api from "../workers/api.js";
+// import useAuth from "../authStore/zustAuth.jsx";
 
 function Login() {
   const [data, setData] = useState({ email: "", pwd: "" });
   const navigate = useNavigate();
-  const { setLoggedIn } = useAuth();
+  // const { setLoggedIn } = useAuth();
 
   const handleSubmit = () => {
-    api
-      .post("/login", data, {withCredentials: true})
-      .then((res) => {
-        if (!res.data == "Login Successful") return navigate("/login");
-        setLoggedIn(true);
-        setData({ email: "", pwd: "" });
-        navigate("/user/dashboard");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    navigate("/user/dashboard");
   };
   return (
     <div className="mx-auto flex flex-col max-w-[95vw] sm:max-w-[450px] my-[200px] py-8 px-3 border-black border rounded-md gap-2">
