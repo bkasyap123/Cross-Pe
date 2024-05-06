@@ -1,11 +1,10 @@
 import mongoose from "mongoose";
+const url = process.env.MONGO_URL;
 
 dbConfig().catch((err) => console.log(err));
 
 async function dbConfig() {
-  await mongoose.connect(
-    `mongodb+srv://${process.env.MONGO_UNAME}:${process.env.MONGO_PWD}@easypayz.qxl1w3d.mongodb.net/?retryWrites=true&w=majority&appName=easypayz`
-  );
+  await mongoose.connect(url);
 }
 
 export default dbConfig;
