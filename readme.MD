@@ -1,5 +1,5 @@
 
-# Weekday Jobs
+# EasyPaz
 
 Small MVP for a fintech company which's in it's early age of startup.
 
