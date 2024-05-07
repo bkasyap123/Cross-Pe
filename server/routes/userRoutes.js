@@ -26,7 +26,7 @@ userRoute.post("/signup", async (req, res, next) => {
     let tkn = jwt.sign({ user: newUser }, process.env.JWT_SECRET, {
       expiresIn: 2 * 24 * 60 * 60 * 1000,
     });
-    let cookieOps = { maxAge: 2 * 24 * 60 * 60 * 1000 };
+    let cookieOps = { maxAge: 2 * 24 * 60 * 60 * 1000, httpOnly: true };
     req.currUser = null;
     res.cookie("token", tkn, cookieOps).send("Registration Successful");
   } catch (error) {
@@ -51,7 +51,7 @@ userRoute.post("/login", async (req, res) => {
   let tkn = jwt.sign({ user: user }, process.env.JWT_SECRET, {
     expiresIn: 2 * 24 * 60 * 60 * 1000,
   });
-  let cookieOps = { maxAge: 2 * 24 * 60 * 60 * 1000 };
+  let cookieOps = { maxAge: 2 * 24 * 60 * 60 * 1000, httpOnly: true };
   res.cookie("token", tkn, cookieOps).send("Login Successfull");
 });
 
