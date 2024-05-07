@@ -7,17 +7,23 @@ function Register() {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    api
-      .post("/signup", data, { withCredentials: true })
-      .then((res) => {
-        if (!res.data == "Registration Successful") return navigate("/signup");
-        setData({ email: "", pwd: "", phone: "" });
-        navigate("/user/dashboard");
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    try {
+      api
+        .post("/signup", data, { withCredentials: true })
+        .then((res) => {
+          if (!res.data == "Registration Successful")
+            return navigate("/signup");
+          setData({ email: "", pwd: "", phone: "" });
+          navigate("/user/dashboard");
+        })
+        .catch((err) => {
+          console.error(err.response);
+        });
+    } catch (err) {
+      console.log(err);
+    }
   };
+
   return (
     <div className="border-black mx-auto flex flex-col max-w-[95vw] sm:max-w-[450px] my-[250px] py-8 px-3 border gap-2">
       <h2 className="text-center font-bold">SIGNUP</h2>

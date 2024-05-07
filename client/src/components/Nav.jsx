@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
 import { MdOutlineMenu } from "react-icons/md";
 import { useState } from "react";
-import useAuth from "../authStore/zustAuth.jsx";
+// import useAuth from "../authStore/zustAuth.jsx";
 import Logout from "./Logout.jsx";
 
 function Nav() {
   const [expand, setExpand] = useState(false);
-  const { isLoggedIn } = useAuth();
+  // const { isLoggedIn } = useAuth();
+  const userExist = document.cookie.slice(6);
 
   const handleNav = () => {
     setExpand(!expand);
   };
+
   return (
     <div
       className={`${
@@ -25,7 +27,7 @@ function Nav() {
             : `max-lg:hidden`
         }`}
       >
-        {isLoggedIn ? (
+        {userExist ? (
           <Logout />
         ) : (
           <>

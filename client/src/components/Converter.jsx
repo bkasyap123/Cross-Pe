@@ -22,21 +22,21 @@ function Converter() {
   let today = (new Date().getDay() + 2) % 7;
 
   // const calculate = () => {
-  useEffect(() => {
-    freecurrencyapi
-      .latest({
-        base_currency: `${currency}`,
-        currencies: `${currencyTwo}`,
-      })
-      .then((res) => {
-        let amount = res.data[Object.keys(res.data)[0]];
-        setForex(1 * amount);
-        setReceive(send * amount);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [send]);
+  // useEffect(() => {
+  //   freecurrencyapi
+  //     .latest({
+  //       base_currency: `${currency}`,
+  //       currencies: `${currencyTwo}`,
+  //     })
+  //     .then((res) => {
+  //       let amount = res.data[Object.keys(res.data)[0]];
+  //       setForex(1 * amount);
+  //       setReceive(send * amount);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [send]);
   // };
   return (
     <div className=" bg-white shadow-xl mx-4 mt-10 text-[14px] p-4 rounded-2xl sm:max-w-[330px] sm:text-[18px]">

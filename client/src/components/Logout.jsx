@@ -1,19 +1,18 @@
 import api from "../workers/api.js";
-import useAuth from "../authStore/zustAuth.jsx";
+// import useAuth from "../authStore/zustAuth.jsx";
 
 function Logout() {
-  const { setLoggedIn } = useAuth();
-
   const handleLogout = () => {
     api
-      .post("/logout", {}, {withCredentials: true})
+      .post("/logout", {}, { withCredentials: true })
       .then((res) => {
-        setLoggedIn(false);
+        console.log(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   };
+
   return (
     <div
       onClick={handleLogout}

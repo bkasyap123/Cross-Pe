@@ -1,26 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import api from "../workers/api.js";
+import api from "../workers/api";
 
 function Dashboard() {
-  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    api
-      .get("/dashboard")
-      .then((res) => {
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    try {
+      api
+        .get("/dashboard", { withCredentials: true })
+        .then((res) => {
+          setUser(res.data);
+        })
+        .catch((err) => {
+          console.error(err.response);
+        });
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
+
   return (
     <div className="text-center">
-      <h1 className="text-blue-600">Welcome to Dashboard</h1>
-      {/* <h2>Email: {data?.email}</h2>
-      <h2>Phone: {data?.phone}</h2>
-      <h1>Yes {isLoggedIn}</h1> */}
+      <div className="my-3 font-semibold border border-black">Dashboard</div>
+      <div>Your Email: {user?.email || <strong>Unauthorized</strong>}</div>
+      <div>Your Phone: {user?.phone || <strong>Unauthorized</strong>}</div>
     </div>
   );
 }
