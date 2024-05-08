@@ -4,6 +4,8 @@ import jwt from "jsonwebtoken";
 import dbConfig from "../model/dbConfig.js";
 import { User } from "../model/userModal.js";
 import isAuthenticated from "../controllers/authController.js";
+import { LocalStorage } from "node-localstorage";
+const localStorage = new LocalStorage("./scratch");
 const userRoute = express.Router();
 
 userRoute.post("/signup", async (req, res, next) => {
@@ -26,9 +28,12 @@ userRoute.post("/signup", async (req, res, next) => {
     let tkn = jwt.sign({ user: newUser }, process.env.JWT_SECRET, {
       expiresIn: 2 * 24 * 60 * 60 * 1000,
     });
-    let cookieOps = { maxAge: 2 * 24 * 60 * 60 * 1000 };
-    req.currUser = null;
-    res.cookie("token", tkn, cookieOps).send("Registration Successful");
+    // let cookieOps = { maxAge: 2 * 24 * 60 * 60 * 1000 };
+    // req.currUser = null;
+    // res.cookie("token", tkn, cookieOps).send("Registration Successful");
+
+    localStorage.setItem("token", JSON.stringify(tkn));
+    res.status(200).send("Registration Successful");
   } catch (error) {
     next(error);
   }
@@ -51,8 +56,10 @@ userRoute.post("/login", async (req, res) => {
   let tkn = jwt.sign({ user: user }, process.env.JWT_SECRET, {
     expiresIn: 2 * 24 * 60 * 60 * 1000,
   });
-  let cookieOps = { maxAge: 2 * 24 * 60 * 60 * 1000 };
-  res.cookie("token", tkn, cookieOps).send("Login Successfull");
+  // let cookieOps = { maxAge: 2 * 24 * 60 * 60 * 1000 };
+  // res.cookie("token", tkn, cookieOps).send("Login Successfull");
+  localStorage.setItem("token", JSON.stringify(tkn));
+  res.status(200).send("Login Successfull!");
 });
 
 userRoute.get("/dashboard", isAuthenticated, (req, res) => {
@@ -61,7 +68,9 @@ userRoute.get("/dashboard", isAuthenticated, (req, res) => {
 
 //LOGOUT
 userRoute.post("/logout", (req, res) => {
-  res.clearCookie("token").send("Logged out Successfully!");
+  localStorage.setItem("token", null);
+  res.status(200).send("Logged out Successfully!");
+  // res.clearCookie("token").send("Logged out Successfully!");
   req.user = null;
 });
 

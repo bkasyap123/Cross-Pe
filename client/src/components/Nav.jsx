@@ -7,10 +7,12 @@ import Logout from "./Logout.jsx";
 function Nav() {
   const [expand, setExpand] = useState(false);
   // const { isLoggedIn } = useAuth();
-  const userExist = document.cookie.slice(6);
+  // const userExist = localStorage.getItem("tkn");
 
   const handleNav = () => {
     setExpand(!expand);
+    // const userExist = localStorage.getItem("token");
+    // console.log(userExist);
   };
 
   return (
