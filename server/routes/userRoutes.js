@@ -34,6 +34,9 @@ userRoute.post("/signup", async (req, res, next) => {
 
     localStorage.setItem("token", JSON.stringify(tkn));
     res.status(200).send("Registration Successful");
+    // let cookieOps = { maxAge: 2 * 24 * 60 * 60 * 1000, httpOnly: true };
+    // req.currUser = null;
+    // res.cookie("token", tkn, cookieOps).send("Registration Successful");
   } catch (error) {
     next(error);
   }
@@ -60,6 +63,9 @@ userRoute.post("/login", async (req, res) => {
   // res.cookie("token", tkn, cookieOps).send("Login Successfull");
   localStorage.setItem("token", JSON.stringify(tkn));
   res.status(200).send("Login Successfull!");
+
+  // let cookieOps = { maxAge: 2 * 24 * 60 * 60 * 1000, httpOnly: true };
+  // res.cookie("token", tkn, cookieOps).send("Login Successfull");
 });
 
 userRoute.get("/dashboard", isAuthenticated, (req, res) => {
