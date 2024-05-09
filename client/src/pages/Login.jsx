@@ -12,7 +12,7 @@ function Login() {
       api
         .post("/login", data, { withCredentials: true })
         .then((res) => {
-          if (res.status == 200) return navigate("/user/dashboard");
+          if (res.status == 200) return navigate("/dashboard");
           setData({ email: "", pwd: "" });
           navigate("/login");
         })

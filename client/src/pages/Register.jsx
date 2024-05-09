@@ -14,7 +14,7 @@ function Register() {
           if (!res.data == "Registration Successful")
             return navigate("/signup");
           setData({ email: "", pwd: "", phone: "" });
-          navigate("/user/dashboard");
+          navigate("/dashboard");
         })
         .catch((err) => {
           console.error(err.response);
