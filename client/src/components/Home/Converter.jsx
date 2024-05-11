@@ -22,24 +22,25 @@ function Converter() {
   let today = (new Date().getDay() + 2) % 7;
 
   // const calculate = () => {
-  // useEffect(() => {
-  //   freecurrencyapi
-  //     .latest({
-  //       base_currency: `${currency}`,
-  //       currencies: `${currencyTwo}`,
-  //     })
-  //     .then((res) => {
-  //       let amount = res.data[Object.keys(res.data)[0]];
-  //       setForex(1 * amount);
-  //       setReceive(send * amount);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [send]);
+  useEffect(() => {
+    freecurrencyapi
+      .latest({
+        base_currency: `${currency}`,
+        currencies: `${currencyTwo}`,
+      })
+      .then((res) => {
+        let amount = res.data[Object.keys(res.data)[0]];
+        setForex(1 * amount);
+        setReceive(send * amount);
+        // console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [send]);
   // };
   return (
-    <div className=" bg-white shadow-xl mx-4 mt-10 text-[14px] p-4 rounded-2xl sm:max-w-[330px] sm:text-[18px]">
+    <div className="border bg-white shadow-xl mx-4 mt-10 text-[14px] p-4 rounded-2xl sm:text-[18px]">
       <p className="text-sm mb-2 text-gray-900">You sent</p>
       <div className="flex items-center border-gray-300 rounded-lg border-2 mb-3">
         <input
@@ -109,9 +110,9 @@ function Converter() {
       </p>
       <button
         // onClick={calculate}
-        className="bg-green-400 mt-4 w-full  max-sm:w-full px-6 py-2 text-[16px] text-black font-semibold rounded-full"
+        className="bg-blue-600 mt-4 w-full max-sm:w-full px-6 py-2 text-[16px] text-white font-semibold rounded-full"
       >
-        Transfer now
+        Transfer Now
       </button>
     </div>
   );

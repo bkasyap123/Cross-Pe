@@ -1,16 +1,20 @@
-import Nav from "../components/Nav.jsx";
-import Content from "../components/Content.jsx";
-import Hero from "../components/Hero.jsx";
-import Foot from "../components/Foot.jsx";
+import Nav from "../components/Home/Nav";
+import Hero from "../components/Home/Hero";
+import How from "../components/Home/How";
+import Feature from "../components/Home/Feature";
+import Subscribe from "../components/Home/Subscribe";
+import Foot from "../components/Home/Foot";
 
 function Home() {
   return (
-    <div className="text-[23px] lg:text-3xl">
+    <>
       <Nav />
-      <Content />
       <Hero />
+      <How />
+      <Feature />
+      <Subscribe />
       <Foot />
-    </div>
+    </>
   );
 }
 

@@ -8,6 +8,7 @@ const app = express();
 app.use(
   cors({
     origin: "https://easypayz.vercel.app",
+    // origin: "http://localhost:5173",
     credentials: true,
   })
 );

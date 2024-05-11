@@ -5,14 +5,6 @@
 
 #root {
   box-sizing: border-box;
-  /* overflow-x: hidden; */
-}
-
-.logo {
-  background: linear-gradient(135deg, green, #a4d4b4, green);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 650;
-  font-family: monospace;
+  /* background: black; */
+  overflow-x: hidden;
 }
