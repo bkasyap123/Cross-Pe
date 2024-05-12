@@ -1,7 +1,7 @@
 import { useState } from "react";
 import logo from ".././assets/easypayZ-logo.png";
-import api from "../worker/api";
-import { useNavigate } from "react-router-dom";
+import api from "../service/api";
+import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -9,18 +9,19 @@ function Register() {
   const navigate = useNavigate();
   const [data, setData] = useState({ email: "", phone: "", pwd: "" });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       api
         .post("/signup", data)
         .then((res) => {
-          toast.success(`${res.data}`, {
+          toast.success(`${res.data.status}`, {
             position: "top-center",
             autoClose: 1000,
             onClose: () => navigate("/dashboard"),
           });
+          localStorage.setItem("token", res.data.token);
         })
         .catch((err) => {
           toast.error(`${err.response.data || "Something broke"}`, {
@@ -98,12 +99,12 @@ function Register() {
 
           <p className="mt-10 text-center text-sm text-gray-500">
             Already have an account?{" "}
-            <a
-              href="/login"
+            <Link
+              to="/login"
               className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
             >
               Login here
-            </a>
+            </Link>
           </p>
         </div>
       </div>

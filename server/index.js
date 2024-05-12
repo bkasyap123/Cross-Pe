@@ -3,12 +3,13 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import "dotenv/config";
 import userRoute from "./routes/userRoutes.js";
+import connectDatabase from "./model/dbConfig.js";
 const app = express();
+connectDatabase();
 
 app.use(
   cors({
-    origin: "https://easypayz.vercel.app",
-    // origin: "http://localhost:5173",
+    origin: "https://easypayz.onrender.com",
     credentials: true,
   })
 );
@@ -24,7 +25,8 @@ app.get("/health", (req, res) => {
 
 app.use((error, req, res, next) => {
   let { message } = error;
-  console.log(`You got an Error: ${message}`);
+  console.error(error.stack);
+  res.status(500).send(`Internal Server Error: ${message}`);
   next();
 });
 

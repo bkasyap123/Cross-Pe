@@ -1,10 +1,15 @@
 import mongoose from "mongoose";
 const url = process.env.MONGO_URL;
 
-dbConfig().catch((err) => console.log(err));
+const connectDatabase = () => {
+  mongoose
+    .connect(url)
+    .then(() => {
+      console.log(`Mongoose Connected`);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
-async function dbConfig() {
-  await mongoose.connect(url);
-}
-
-export default dbConfig;
+export default connectDatabase;
