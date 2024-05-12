@@ -9,7 +9,7 @@ connectDatabase();
 
 app.use(
   cors({
-    origin: "https://easypayz.onrender.com",
+    origin: "https://easypayz.vercel.app",
     credentials: true,
   })
 );
