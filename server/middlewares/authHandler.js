@@ -7,7 +7,7 @@ const isAuthenticated = (req, res, next) => {
 
   let tkn = req.headers.authorization.split(" ")[1];
   try {
-    let decoded = jwt.verify(tkn, process.env.JWT_SECRET, (error, decoded) => {
+    jwt.verify(tkn, process.env.JWT_SECRET, (error, decoded) => {
       if (error || !decoded)
         return res.status(401).send("Access denied to unauthorized user");
       req.user = decoded.id;

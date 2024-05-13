@@ -53,5 +53,6 @@ export const login = async (req, res, next) => {
 
 export const getUser = async (req, res) => {
   let user = await User.findById(req.user);
+  user.pwd = null;
   res.status(200).send(user);
 };
