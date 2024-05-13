@@ -31,10 +31,6 @@ app.use((error, req, res, next) => {
   next();
 });
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("../client/build"));
-}
-
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Server listening to port ${process.env.PORT}`);
 });
