@@ -2,6 +2,7 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import "dotenv/config";
+import path from "path";
 import userRoute from "./routes/userRoutes.js";
 import connectDatabase from "./model/dbConfig.js";
 const app = express();
@@ -29,6 +30,13 @@ app.use((error, req, res, next) => {
   res.status(500).send(`Internal Server Error: ${message}`);
   next();
 });
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("../client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`Server listening to port ${process.env.PORT}`);
