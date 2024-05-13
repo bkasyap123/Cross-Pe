@@ -33,10 +33,6 @@ app.use((error, req, res, next) => {
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("../client/build"));
-  app.get("*", (req, res) => {
-    const indexPath = path.join(process.cwd(), "client", "build", "index.html");
-    res.sendFile(indexPath);
-  });
 }
 
 app.listen(process.env.PORT || 3000, () => {
