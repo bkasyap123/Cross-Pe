@@ -7,8 +7,8 @@ import { FaUser } from "react-icons/fa";
 function Sidebar({ value }) {
   return (
     <div className="border min-w-[300px] lg:w-[303px] text-black shadow-sm text-md font-semibold hidden sm:block min-h-[100vh]">
-      <div className="logo pt-10">
-        <img src={logo} className="w-[175px] mx-4 mt-10 lg:mt-16" alt="logo" />
+      <div className="logo pt-2">
+        {/* <img src={logo} className="w-[175px] mx-4 mt-10 lg:mt-16" alt="logo" /> */}
         <h1 className="p-4 mt-8 bg-gray-200 mx-4 rounded-xl text-slate-700 font-semibold">
           {value.email}
         </h1>

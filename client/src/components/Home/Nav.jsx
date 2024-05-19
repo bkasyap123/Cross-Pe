@@ -2,14 +2,19 @@ import { useState } from "react";
 import logo from "../../assets/easypayZ-logo.png";
 import { IoMenu } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Context";
+import { useContext } from "react";
+import { useLogout } from "../../hooks/useLogout";
+import UserAction from "./Popper";
 
 function Nav() {
   const [active, setActive] = useState(false);
   const number = import.meta.env.VITE_NUMBER;
+  const { isLoggedIn } = useContext(AuthContext);
+  const logout = useLogout();
 
   const handleClick = () => {
     setActive(!active);
-    // active ? console.log(active) : console.log(active);
   };
 
   const handleCall = () => {
@@ -37,27 +42,45 @@ function Nav() {
           <h2>Individual</h2>
           <h2>Contact</h2>
         </div>
-        <div className="action flex gap-6 max-md:hidden">
-          <Link to="/login">
-            <button className="active:border px-6 py-2 rounded-full active:rounded-full active:text-blue-400 active:border-blue-500">
-              Login
-            </button>
-          </Link>
-          <Link to="/register">
-            <button className="px-6 py-2 rounded-full text-blue-400 border-2 border-blue-500">
-              Register
-            </button>
-          </Link>
-        </div>
+        {isLoggedIn ? (
+          <UserAction />
+        ) : (
+          <div className="action flex gap-6 max-md:hidden">
+            <Link to="/login">
+              <button className="border px-6 py-2 rounded-full active:rounded-full active:text-blue-400 active:border-blue-500">
+                Login
+              </button>
+            </Link>
+            <Link to="/register">
+              <button className="px-6 py-2 rounded-full text-blue-400 border-2 border-blue-500">
+                Register
+              </button>
+            </Link>
+          </div>
+        )}
         <IoMenu onClick={handleClick} fontSize={34} className=" md:hidden" />
       </nav>
       <div
         className={`${
           active
-            ? `my-4 text-white z-10 bg-[#000000a5] absolute top-20 py-4 flex flex-col w-full items-center`
+            ? `my-4 text-white z-10 bg-[#000] absolute top-20 py-4 flex flex-col w-full items-center`
             : `hidden`
         }`}
       >
+        {isLoggedIn ? (
+          <button
+            onClick={() => logout()}
+            className="font-mono py-2 border px-6 rounded-full mb-3 active:bg-white active:text-black"
+          >
+            Logout
+          </button>
+        ) : (
+          <Link to="/login">
+            <button className="font-mono py-2 border px-6 rounded-full mb-3 active:bg-white active:text-black">
+              Login
+            </button>
+          </Link>
+        )}
         <Link to="/register">
           <h2 className="font-mono">For Businesses</h2>
         </Link>

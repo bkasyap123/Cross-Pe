@@ -1,13 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import logo from ".././assets/easypayZ-logo.png";
 import api from "../service/api";
 import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../Context";
 
 function Register() {
   const navigate = useNavigate();
   const [data, setData] = useState({ email: "", phone: "", pwd: "" });
+  const { setIsLoggedIn } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,6 +24,7 @@ function Register() {
             onClose: () => navigate("/dashboard"),
           });
           localStorage.setItem("token", res.data.token);
+          setIsLoggedIn(true);
         })
         .catch((err) => {
           toast.error(`${err.response.data || "Something broke"}`, {
