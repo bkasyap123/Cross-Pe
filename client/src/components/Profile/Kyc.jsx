@@ -10,7 +10,7 @@ function Kyc() {
           Please complete the KYC to start accepting payments.
         </p>
         <button className="button bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold my-6">
-          Completed KYC
+          Complete KYC
         </button>
       </div>
       <img src={kyc} alt="kycImage" className="max-w-[290px] object-cover" />
