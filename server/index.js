@@ -10,7 +10,7 @@ connectDatabase();
 
 app.use(
   cors({
-    origin: "https://easypayz.vercel.app",
+    origin: "https://www.gocrosspe.com",
     // origin: "http://localhost:5173",
     credentials: true,
   })
