@@ -8,16 +8,19 @@ import { AuthContext } from "../Context";
 
 function Login() {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({ email: "", pwd: "" });
   const { setIsLoggedIn } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       api
         .post("/login", data)
         .then((res) => {
+          setLoading(false);
           toast.success(`${res.data.status}`, {
             position: "top-center",
             autoClose: 1000,
@@ -31,6 +34,7 @@ function Login() {
             position: "top-center",
             autoClose: 2000,
           });
+          setLoading(false);
           setData({ email: "", pwd: "" });
         });
     } catch (err) {

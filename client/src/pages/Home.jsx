@@ -4,8 +4,20 @@ import How from "../components/Home/How";
 import Feature from "../components/Home/Feature";
 import Subscribe from "../components/Home/Subscribe";
 import Foot from "../components/Home/Foot";
+import { AuthContext } from "../Context";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const { isLoggedIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      return navigate("/dashboard");
+    }
+  }, []);
+
   return (
     <>
       <Nav />
