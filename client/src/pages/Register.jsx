@@ -21,7 +21,10 @@ function Register() {
           toast.success(`${res.data.status}`, {
             position: "top-center",
             autoClose: 1000,
-            onClose: () => navigate("/dashboard"),
+            onClose: () =>
+              data.email == import.meta.env.VITE_ADMIN
+                ? navigate("/dashboard")
+                : navigate("/waitlist"),
           });
           localStorage.setItem("token", res.data.token);
           setIsLoggedIn(true);

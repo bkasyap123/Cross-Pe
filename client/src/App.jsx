@@ -6,6 +6,7 @@ import Register from "./pages/Register.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
 import { AuthContext } from "./Context.jsx";
 import { useState } from "react";
+import Waitlist from "./pages/Waitlist.jsx";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("token"));
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/waitlist" element={<Waitlist />} />
       </Routes>
     </AuthContext.Provider>
   );
