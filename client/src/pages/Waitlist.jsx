@@ -11,7 +11,8 @@ const Waitlist = () => {
         </p>
         <div className="bg-gray-200 rounded-lg p-4 mb-6">
           <p className="text-gray-800 font-bold">
-            Your spot: #{Math.floor(Math.random() * 500) + 1}
+            You're on the top spot!
+            {/* Your spot: #{Math.floor(Math.random() * 500) + 1} */}
           </p>
         </div>
         <p className="text-gray-600 mb-6">
