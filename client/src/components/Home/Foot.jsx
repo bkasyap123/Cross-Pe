@@ -2,6 +2,7 @@ import logo from "../../assets/easypayZ-logo.png";
 import { FaLinkedin } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 function Foot() {
   const number = import.meta.env.VITE_NUMBER;
