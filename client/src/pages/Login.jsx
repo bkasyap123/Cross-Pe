@@ -29,6 +29,7 @@ function Login() {
                 ? navigate("/dashboard")
                 : navigate("/waitlist"),
           });
+          console.log(import.meta.env.VITE_ADMIN, data.email);
           localStorage.setItem("token", res.data.token);
           setIsLoggedIn(true);
         })
