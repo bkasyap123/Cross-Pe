@@ -16,6 +16,8 @@ function Login() {
     e.preventDefault();
     setLoading(true);
 
+    let usermail = import.meta.env.VITE_ADMIN;
+
     try {
       api
         .post("/login", data)
@@ -25,11 +27,11 @@ function Login() {
             position: "top-center",
             autoClose: 1000,
             onClose: () =>
-              data.email == import.meta.env.VITE_ADMIN
+              data.email == usermail
                 ? navigate("/dashboard")
                 : navigate("/waitlist"),
           });
-          console.log(import.meta.env.VITE_ADMIN, data.email);
+          console.log(usermail, data.email);
           localStorage.setItem("token", res.data.token);
           setIsLoggedIn(true);
         })
