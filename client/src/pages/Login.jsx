@@ -31,7 +31,7 @@ function Login() {
                 ? navigate("/dashboard")
                 : navigate("/waitlist"),
           });
-          console.log(usermail, data.email);
+          // console.log(usermail, data.email);
           localStorage.setItem("token", res.data.token);
           setIsLoggedIn(true);
         })

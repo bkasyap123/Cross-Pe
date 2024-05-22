@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Currency from "./Currency.jsx";
+import Modal from "./Modal.jsx";
 
 function Account() {
-  let contries = [
+  const [modal, setModal] = useState(false);
+
+  let countries = [
     { flag: "EU", name: "Euro" },
     { flag: "GB", name: "Great Britain Pound" },
     { flag: "USA", name: "United States Dollar" },
@@ -19,10 +22,11 @@ function Account() {
         + Add Virtual Account
       </button>
       <div className="md:flex md:flex-wrap">
-        {contries.map((contry, idx) => (
-          <Currency key={idx} flag={contry} />
+        {countries.map((contry, idx) => (
+          <Currency key={idx} flag={contry} setModal={setModal} />
         ))}
       </div>
+      <Modal modal={modal} setModal={setModal} flag={countries} />
     </div>
   );
 }

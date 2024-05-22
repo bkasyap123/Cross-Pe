@@ -2,12 +2,17 @@ import Flag from "react-world-flags";
 import { TbMathGreater } from "react-icons/tb";
 import { useState } from "react";
 
-function Currency({ flag }) {
+function Currency({ flag, setModal }) {
   const [active, setActive] = useState(false);
+
+  const handleClick = () => {
+    setActive(!active);
+    setModal(true);
+  };
 
   return (
     <div
-      onClick={() => setActive(!active)}
+      onClick={handleClick}
       className={`${
         active ? `bg-gradient-to-b from-blue-300 to-blue-400 text-white` : ``
       }  p-6 mx-3 rounded-lg my-4 lg:min-w-[270px] border shadow-sm`}

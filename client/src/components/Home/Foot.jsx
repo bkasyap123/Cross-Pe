@@ -22,11 +22,11 @@ function Foot() {
         <div className="mt-2 col-span-1 max-sm:col-span-3">
           <h2 className="font-bold text-lg my-4">Contact</h2>
           <ul className="text-sm text-opacity-90 leading-8">
-            <li className="flex items-center gap-2">
-              <Link to="https://www.linkedin.com/company/easypayz/?viewAsMember=true">
+            <Link to="https://www.linkedin.com/company/easypayz/?viewAsMember=true">
+              <li className="flex items-center gap-2">
                 <FaLinkedin /> Linkedin
-              </Link>
-            </li>
+              </li>
+            </Link>
             <li className="flex items-center gap-2">
               <MdOutlineMail />
               Email
