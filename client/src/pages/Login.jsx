@@ -1,10 +1,11 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from ".././assets/easypayZ-logo.png";
 import api from "../service/api";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../Context";
+import Spinner from "../components/Home/Spinner.jsx";
 
 function Login() {
   const navigate = useNavigate();
@@ -31,7 +32,6 @@ function Login() {
                 ? navigate("/dashboard")
                 : navigate("/waitlist"),
           });
-          // console.log(usermail, data.email);
           localStorage.setItem("token", res.data.token);
           setIsLoggedIn(true);
         })
@@ -51,6 +51,7 @@ function Login() {
   return (
     <>
       <ToastContainer />
+      {loading ? <Spinner /> : ""}
       <div className="flex bg-black h-[100vh] text-white flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img className="mx-auto h-10 w-auto" src={logo} alt="Your Company" />
@@ -65,9 +66,10 @@ function Login() {
                   type="email"
                   placeholder="Email"
                   required
+                  disabled={loading}
                   value={data.email}
                   onChange={(e) => setData({ ...data, email: e.target.value })}
-                  className="block w-full text-gray-900 rounded-md border-0 py-1.5 px-3 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full border-none text-gray-900 rounded-md border border-gray-300 py-1.5 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -79,9 +81,10 @@ function Login() {
                   type="password"
                   placeholder="Password"
                   required
+                  disabled={loading}
                   value={data.pwd}
                   onChange={(e) => setData({ ...data, pwd: e.target.value })}
-                  className="block w-full px-3 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full px-3 border-none rounded-md border border-gray-300 py-1.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -89,9 +92,10 @@ function Login() {
             <div>
               <button
                 type="submit"
+                disabled={loading}
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-md font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                Login
+                {loading ? "Loading.." : "Login"}
               </button>
             </div>
           </form>

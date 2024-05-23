@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 
 export default function CircularIndeterminate() {
   return (
-    <div className="absolute left-[48%]">
+    <div className="absolute opacity-100 left-[45%] md:left-[48%] top-[46%]">
       <Box sx={{ display: "flex" }}>
         <CircularProgress />
       </Box>

@@ -27,26 +27,14 @@ export default function Modal({ modal, setModal, flag }) {
 
   return (
     <>
-      {/* <div className="bg-gradient-to-b from-blue-300 to-blue-400 text-white p-6 mx-3 rounded-lg my-4 lg:min-w-[270px] border shadow-sm">
-        <div className="flex gap-4">
-          <Flag code={flag.flag} width={34} />
-          <span>
-            <p className="text-semibold">{flag.name}</p>
-            <p className="text-[13px] text-blue-500">USD</p>
-          </span>
-        </div>
-
-        <p className="flex justify-between items-center mt-5">
-          USD 0.00 <TbMathGreater fontSize={20} />
-        </p>
-      </div> */}
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
+        aria-hidden="true"
         open={modal}
       >
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          {flag[0].flag}
+          Complete Verification
         </DialogTitle>
         <IconButton
           aria-label="close"
@@ -62,26 +50,18 @@ export default function Modal({ modal, setModal, flag }) {
         </IconButton>
         <DialogContent dividers>
           <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-            auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-            dui. Donec ullamcorper nulla non metus auctor fringilla.
+            Please complete the KYC to get your international account in just 2
+            minutes.
           </Typography>
         </DialogContent>
-        {/* <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Save changes
-          </Button>
-        </DialogActions> */}
+        <DialogActions>
+          <button
+            onClick={handleClose}
+            className="bg-blue-500 text-center py-2 px-4 rounded-md text-white mx-auto"
+          >
+            Complete KYC
+          </button>
+        </DialogActions>
       </BootstrapDialog>
     </>
   );

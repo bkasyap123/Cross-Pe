@@ -12,12 +12,6 @@ function Home() {
   const { isLoggedIn } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isLoggedIn) {
-      return navigate("/dashboard");
-    }
-  }, []);
-
   return (
     <>
       <Nav />

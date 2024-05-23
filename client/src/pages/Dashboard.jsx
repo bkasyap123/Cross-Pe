@@ -12,6 +12,8 @@ function Dashboard() {
   const [user, setUser] = useState({});
   const { setIsLoggedIn, isLoggedIn } = useContext(AuthContext);
 
+  let usermail = import.meta.env.VITE_ADMIN;
+
   useEffect(() => {
     api
       .get("/dashboard", {
@@ -28,6 +30,10 @@ function Dashboard() {
         console.log(err.response);
       });
   }, [isLoggedIn]);
+
+  if (user.email != usermail) {
+    return navigate("/waitlist");
+  }
 
   return (
     <>
