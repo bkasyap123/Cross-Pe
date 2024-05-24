@@ -26,7 +26,7 @@ const Waitlist = () => {
             target="_blank"
             className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-300"
           >
-            Inivte Friends
+            Invite Friends
           </a>
         </div>
       </div>

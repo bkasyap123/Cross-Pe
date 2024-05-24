@@ -1,10 +1,10 @@
 import { User } from "../model/userModal.js";
 
 export const signup = async (req, res, next) => {
-  let { email, pwd, phone } = req.body;
+  let { uname, email, pwd, phone } = req.body;
 
   //if info provided
-  if (!email || !pwd || !phone)
+  if (!uname || !email || !pwd || !phone)
     return res.status(400).send("Provide all the details");
 
   try {
@@ -14,6 +14,7 @@ export const signup = async (req, res, next) => {
 
     //create user
     let newUser = await User.create({
+      uname: uname,
       email: email,
       pwd: pwd,
       phone: phone,

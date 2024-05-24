@@ -10,7 +10,12 @@ import Spinner from "../components/Home/Spinner.jsx";
 function Register() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState({ email: "", phone: "", pwd: "" });
+  const [data, setData] = useState({
+    uname: "",
+    email: "",
+    phone: "",
+    pwd: "",
+  });
   const { setIsLoggedIn } = useContext(AuthContext);
 
   const handleSubmit = async (e) => {
@@ -56,12 +61,27 @@ function Register() {
         </div>
         <div className="mt-8 sm:max-w-sm sm:mx-auto sm:w-full text-md">
           <p className="my-1">
-            Thanks for your interest in <strong>GoCrossPay!</strong>
+            Thanks for your interest in <strong>Cross Pe!</strong>
           </p>
           <p>We’ll reach out to you once our product becomes available.</p>
         </div>
         <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSubmit}>
+            <div>
+              <div className="mt-2">
+                <input
+                  id="uname"
+                  name="uname"
+                  type="text"
+                  placeholder="Username"
+                  required
+                  disabled={loading}
+                  value={data.uname}
+                  onChange={(e) => setData({ ...data, uname: e.target.value })}
+                  className="block w-full border-none text-gray-900 rounded-md border border-gray-300 py-1.5 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
             <div>
               <div className="mt-2">
                 <input
@@ -82,7 +102,9 @@ function Register() {
                 <input
                   id="number"
                   name="number"
-                  type="number"
+                  type="tel"
+                  minLength={10}
+                  maxLength={10}
                   placeholder="Phone"
                   required
                   disabled={loading}
@@ -107,7 +129,6 @@ function Register() {
                 />
               </div>
             </div>
-
             <div>
               <button
                 type="submit"

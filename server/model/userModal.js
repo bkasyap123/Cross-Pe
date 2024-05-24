@@ -3,6 +3,9 @@ import jwt from "jsonwebtoken";
 import mongoose, { Schema } from "mongoose";
 
 const userSchema = new Schema({
+  uname: {
+    type: String,
+  },
   email: {
     type: String,
     unique: true,
