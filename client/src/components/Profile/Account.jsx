@@ -16,7 +16,7 @@ function Account() {
     <div className="sm:mx-10 mx-4">
       <h2 className="text-xl font-bold">Your Virtual Accounts</h2>
       <h3 className="flex my-3">
-        Dashbaord • <em>Accounts</em>
+        Dashboard <p className="mx-1">•</p> <em>Accounts</em>
       </h3>
       <button className="bg-blue-500 px-4 py-2 rounded-md text-white mt-4 mb-8">
         + Add Virtual Account
