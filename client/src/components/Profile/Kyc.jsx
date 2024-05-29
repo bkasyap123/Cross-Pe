@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import kyc from "../../assets/kyc.png";
 
 function Kyc() {
@@ -9,9 +10,11 @@ function Kyc() {
         <p className="my-2 text-lg">
           Please complete the KYC to start accepting payments.
         </p>
-        <button className="button bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold my-6">
-          Complete KYC
-        </button>
+        <Link to="/dashboard/profile">
+          <button className="button bg-blue-500 text-white px-4 py-2 rounded-lg font-semibold my-6">
+            Complete KYC
+          </button>
+        </Link>
       </div>
       <img src={kyc} alt="kycImage" className="max-w-[290px] object-cover" />
     </div>

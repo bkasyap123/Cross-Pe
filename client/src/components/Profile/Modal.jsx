@@ -9,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import Flag from "react-world-flags";
+import { Link } from "react-router-dom";
 import { TbMathGreater } from "react-icons/tb";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -55,12 +56,14 @@ export default function Modal({ modal, setModal, flag }) {
           </Typography>
         </DialogContent>
         <DialogActions>
-          <button
-            onClick={handleClose}
-            className="bg-blue-500 text-center py-2 px-4 rounded-md text-white mx-auto"
-          >
-            Complete KYC
-          </button>
+          <Link to="/dashboard/profile">
+            <button
+              onClick={handleClose}
+              className="bg-blue-500 text-center py-2 px-4 rounded-md text-white mx-auto"
+            >
+              Complete KYC
+            </button>
+          </Link>
         </DialogActions>
       </BootstrapDialog>
     </>

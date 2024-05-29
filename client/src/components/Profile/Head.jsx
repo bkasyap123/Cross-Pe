@@ -43,9 +43,7 @@ function Head() {
             sx={{ p: 1 }}
             maxWidth={350}
           >
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro,
-            qlorem100 uibusdam! Lorem ipsum dolor sit amet consectetur,
-            adipisicing elit. Porro, qlorem100 uibusdam!
+            Yay!! You're all caught up!
           </Typography>
         </Popover>
         <UserAction />
