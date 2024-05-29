@@ -2,7 +2,7 @@ import React from "react";
 import Kyc from "../Profile/Kyc";
 import Account from "../Profile/Account";
 
-function Dashboard({ value }) {
+function Dashboard() {
   return (
     <div>
       <Kyc />

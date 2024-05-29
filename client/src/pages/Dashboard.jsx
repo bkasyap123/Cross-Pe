@@ -45,7 +45,7 @@ function Dashboard() {
   return (
     <>
       <Head />
-      <div className="grid grid-cols-[auto,1fr]">
+      <div className="grid sm:grid-cols-[auto,1fr]">
         <Sidebar
           value={user}
           selected={selected}
