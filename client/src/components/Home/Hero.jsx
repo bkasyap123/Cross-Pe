@@ -1,11 +1,12 @@
 // import icon from "../../assets/globe.png";
 // import icon from "../../assets/bank_vector.png";
-import icon from "../../assets/global.webp";
+// import icon from "../../assets/global.webp";
+import icon from "../../assets/image.png";
 import { Link } from "react-router-dom";
 
 function Hero() {
   return (
-    <div className="text-white z-50 sm:flex justify-around gap-4 items-center  bg-black w-full sm:px-14 px-6 py-14">
+    <div className="text-white z-50 sm:flex justify-around gap-4 items-center bg-black w-full sm:pl-14 px-6 py-14">
       <div className="content">
         <h2 className="font-bold text-[24px] sm:text-[30px]  lg:text-[50px] leading-tight">
           Business banking for the
@@ -17,7 +18,7 @@ function Hero() {
           one dashboard.
         </p>
         <Link to="/register">
-          <button className="bg-blue-600 px-6 font-semibold my-3 py-2 rounded-full">
+          <button className="bg-blue-600 px-6 font-semibold mt-5 mb-8 py-2 rounded-full">
             Get Started
           </button>
         </Link>
@@ -25,7 +26,7 @@ function Hero() {
       <div className="icon ">
         <img
           src={icon}
-          className=" sm:w-[350px] lg:w-[540px]"
+          className=" sm:w-[350px] lg:w-[550px]"
           alt="globalIcon"
         />
       </div>
