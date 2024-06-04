@@ -55,20 +55,18 @@ function Register() {
     <>
       <ToastContainer />
       {loading ? <Spinner /> : ""}
-      <div className="flex bg-black h-[100vh] text-white flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="flex bg-gradient-to-r from-gradient-start to-gradient-end h-[100vh] text-[#fff] flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm mb-6">
           <img className="mx-auto h-10 w-auto" src={logo} alt="Your Company" />
         </div>
-        <div className="mt-8 sm:max-w-sm sm:mx-auto sm:w-full text-md">
-          <p className="my-1">
-            Thanks for your interest in <strong>Cross Pe!</strong>
-          </p>
-          <p>We’ll reach out to you once our product becomes available.</p>
-        </div>
+
         <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSubmit}>
+            <h2 className="text-lg font-semibold text-center">
+              Welcome! Create account
+            </h2>
             <div>
-              <div className="mt-2">
+              <div>
                 <input
                   id="uname"
                   name="uname"
@@ -78,7 +76,7 @@ function Register() {
                   disabled={loading}
                   value={data.uname}
                   onChange={(e) => setData({ ...data, uname: e.target.value })}
-                  className="block w-full border-none text-gray-900 rounded-md border border-gray-300 py-1.5 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
+                  className="block bg-[#FFFFFF0D] w-full border-none text-gray-900 rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -93,7 +91,7 @@ function Register() {
                   disabled={loading}
                   value={data.email}
                   onChange={(e) => setData({ ...data, email: e.target.value })}
-                  className="block w-full border-none text-gray-900 rounded-md border border-gray-300 py-1.5 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
+                  className="block bg-[#FFFFFF0D] w-full border-none text-gray-900 rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -110,7 +108,7 @@ function Register() {
                   disabled={loading}
                   value={data.phone}
                   onChange={(e) => setData({ ...data, phone: e.target.value })}
-                  className="block w-full border-none text-gray-900 rounded-md border border-gray-300 py-1.5 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
+                  className="block bg-[#FFFFFF0D] w-full border-none text-gray-900 rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -125,25 +123,28 @@ function Register() {
                   disabled={loading}
                   value={data.pwd}
                   onChange={(e) => setData({ ...data, pwd: e.target.value })}
-                  className="block w-full border-none text-gray-900 rounded-md border border-gray-300 py-1.5 px-3 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
+                  className="block bg-[#FFFFFF0D] w-full border-none text-gray-900 rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
             <div>
               <button
                 type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-md font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full justify-center rounded-xl bg-[#343BFF] p-3 text-md font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
-                {loading ? "Loading.." : "Register"}
+                {loading ? "Loading.." : "Continue"}
               </button>
             </div>
           </form>
-
-          <p className="mt-10 text-center text-sm text-gray-500">
+          {/* <p className="mt-4 text-sm pl-2">
+            By registering, I agree to Xenvert’s Terms of Service and Privacy
+            Policy.
+          </p> */}
+          <p className="mt-8 text-center text-sm text-gray-500">
             Already have an account?{" "}
             <Link
               to="/login"
-              className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500"
+              className="font-semibold text-[#343BFF] leading-6 text-indigo-600 hover:text-indigo-500"
             >
               Login here
             </Link>

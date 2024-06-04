@@ -2,7 +2,7 @@ import React from "react";
 
 function Subscribe() {
   return (
-    <div className="bg-black text-center px-3 py-6 sm:py-8 text-white rounded-xl mx-3 my-4 sm:mx-40">
+    <div className="bg-[#13162c] text-center px-3 py-6 sm:py-8 text-[#fff] rounded-xl mx-3 my-4 sm:mx-40">
       <h1 className="font-bold text-xl sm:text-[31px] my-2">
         Join the waitlist
       </h1>
