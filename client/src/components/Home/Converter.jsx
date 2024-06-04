@@ -110,7 +110,7 @@ function Converter() {
       </p>
       <button
         // onClick={calculate}
-        className="bg-blue-600 mt-4 w-full max-sm:w-full px-6 py-2 text-[16px] text-white font-semibold rounded-full"
+        className="border mt-4 w-full max-sm:w-full px-6 py-2 text-[16px] text-white font-semibold rounded-full"
       >
         Transfer Now
       </button>

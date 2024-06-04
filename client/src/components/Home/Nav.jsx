@@ -68,7 +68,7 @@ function Nav() {
       <div
         className={`${
           active
-            ? `my-4 text-white z-10 bg-[#12131c] absolute top-20 py-4 flex flex-col w-full items-center`
+            ? `my-4 text-[#fff] z-10 bg-[#12131c] absolute top-20 py-4 flex flex-col w-full items-center`
             : `hidden`
         }`}
       >
@@ -94,7 +94,7 @@ function Nav() {
         </Link>
         <button
           onClick={handleCall}
-          className="bg-white px-6 py-2 mt-3 text-black rounded-full outline-none font-semibold"
+          className="bg-[#fff] text-[#000] px-6 py-2 mt-3 text-black rounded-full outline-none font-semibold"
         >
           Talk to Founder
         </button>

@@ -46,7 +46,7 @@ function How() {
               <img
                 src={item[2]}
                 alt={`Image ${index}`}
-                className="lg:size-[350px] sm:size-[200px] max-sm:size-[100px]  object-cover"
+                className="lg:size-[350px] rounded-xl sm:size-[200px] max-sm:size-[100px]  object-cover"
               />
             </div>
           ))}
