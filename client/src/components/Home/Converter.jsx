@@ -39,6 +39,7 @@ function Converter() {
       });
   }, [send]);
   // };
+
   return (
     <div className="border bg-white shadow-xl mx-4 mt-10 text-[14px] p-4 rounded-2xl sm:text-[18px]">
       <p className="text-sm mb-2 text-gray-900">You sent</p>

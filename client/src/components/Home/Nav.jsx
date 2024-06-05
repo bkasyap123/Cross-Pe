@@ -94,7 +94,7 @@ function Nav() {
         </Link>
         <button
           onClick={handleCall}
-          className="bg-[#fff] text-[#000] px-6 py-2 mt-3 text-black rounded-full outline-none font-semibold"
+          className="bg-[#fff] px-6 py-2 mt-3 text-black rounded-full outline-none font-semibold"
         >
           Talk to Founder
         </button>

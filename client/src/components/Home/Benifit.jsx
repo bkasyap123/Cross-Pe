@@ -6,7 +6,7 @@ import img4 from "../../assets/image-4.png";
 import img5 from "../../assets/image-5.png";
 import { LuMoveRight } from "react-icons/lu";
 
-function How() {
+function Benifit() {
   let process = [
     [
       "Fast Transactions",
@@ -81,4 +81,4 @@ function How() {
   );
 }
 
-export default How;
+export default Benifit;

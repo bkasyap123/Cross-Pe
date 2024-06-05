@@ -1,12 +1,13 @@
 import Nav from "../components/Home/Nav";
 import Hero from "../components/Home/Hero";
-import How from "../components/Home/How";
-import Feature from "../components/Home/Feature";
+import Benifit from "../components/Home/Benifit";
+import Demo from "../components/Home/Demo";
 import Subscribe from "../components/Home/Subscribe";
 import Foot from "../components/Home/Foot";
 import { AuthContext } from "../Context";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import HowTo from "../components/Home/HowTo";
 
 function Home() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -16,8 +17,9 @@ function Home() {
     <>
       <Nav />
       <Hero />
-      <How />
-      <Feature />
+      <Benifit />
+      <Demo />
+      <HowTo />
       <Subscribe />
       <Foot />
     </>
