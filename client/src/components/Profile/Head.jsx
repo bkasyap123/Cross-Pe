@@ -21,7 +21,7 @@ function Head() {
   const id = open ? "simple-popover" : undefined;
 
   return (
-    <div className="w-full flex border-b border-red-400 items-center justify-between px-3 md:px-6 py-3 shadow bg-[#0D0E16]">
+    <div className="w-full flex items-center justify-between px-3 md:px-6 py-3 shadow bg-[#0D0E16]">
       <img src={logo} alt="logo" className="w-[150px]" />
       <span className="flex items-center">
         <Button aria-describedby={id} onClick={handleClick}>

@@ -59,7 +59,6 @@ function Register() {
         <div className="sm:mx-auto sm:w-full sm:max-w-sm mb-6">
           <img className="mx-auto h-10 w-auto" src={logo} alt="Your Company" />
         </div>
-
         <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSubmit}>
             <h2 className="text-lg font-semibold text-center">
@@ -76,7 +75,7 @@ function Register() {
                   disabled={loading}
                   value={data.uname}
                   onChange={(e) => setData({ ...data, uname: e.target.value })}
-                  className="block bg-[#FFFFFF0D] w-full border-none text-gray-900 rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
+                  className="block bg-[#FFFFFF0D] w-full border-none text-white rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -91,7 +90,7 @@ function Register() {
                   disabled={loading}
                   value={data.email}
                   onChange={(e) => setData({ ...data, email: e.target.value })}
-                  className="block bg-[#FFFFFF0D] w-full border-none text-gray-900 rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
+                  className="block bg-[#FFFFFF0D] w-full border-none text-white rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -108,7 +107,7 @@ function Register() {
                   disabled={loading}
                   value={data.phone}
                   onChange={(e) => setData({ ...data, phone: e.target.value })}
-                  className="block bg-[#FFFFFF0D] w-full border-none text-gray-900 rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
+                  className="block bg-[#FFFFFF0D] w-full border-none text-white rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -123,7 +122,7 @@ function Register() {
                   disabled={loading}
                   value={data.pwd}
                   onChange={(e) => setData({ ...data, pwd: e.target.value })}
-                  className="block bg-[#FFFFFF0D] w-full border-none text-gray-900 rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
+                  className="block bg-[#FFFFFF0D] w-full border-none text-white rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
                 />
               </div>
             </div>

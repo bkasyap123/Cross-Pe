@@ -2,7 +2,8 @@ import logo from "../../assets/easypayZ-logo.png";
 import { RiDashboard2Line } from "react-icons/ri";
 import { LuReceipt } from "react-icons/lu";
 import { FaUsersLine } from "react-icons/fa6";
-import { FaUser } from "react-icons/fa";
+import { GrAnalytics } from "react-icons/gr";
+
 import { Link } from "react-router-dom";
 import { FaShareNodes } from "react-icons/fa6";
 import { FaUserCircle } from "react-icons/fa";
@@ -12,7 +13,7 @@ function Sidebar({ tabs, selected, setSelected, value }) {
     <RiDashboard2Line fontSize={24} />,
     <LuReceipt fontSize={24} />,
     <FaUsersLine fontSize={24} />,
-    <FaUser fontSize={23} />,
+    <GrAnalytics fontSize={23} />,
     <FaShareNodes fontSize={24} />,
   ];
 
