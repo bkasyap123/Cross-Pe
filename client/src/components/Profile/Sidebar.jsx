@@ -4,25 +4,22 @@ import { LuReceipt } from "react-icons/lu";
 import { FaUsersLine } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaShareNodes } from "react-icons/fa6";
+import { FaUserCircle } from "react-icons/fa";
 
 function Sidebar({ tabs, selected, setSelected, value }) {
   const icons = [
-    <RiDashboard2Line fontSize={25} />,
-    <LuReceipt fontSize={25} />,
-    <FaUsersLine fontSize={25} />,
-    <FaUser fontSize={25} />,
+    <RiDashboard2Line fontSize={24} />,
+    <LuReceipt fontSize={24} />,
+    <FaUsersLine fontSize={24} />,
+    <FaUser fontSize={23} />,
+    <FaShareNodes fontSize={24} />,
   ];
 
   return (
-    <div className="border min-w-[300px] lg:w-[303px] text-black shadow-sm text-md font-semibold hidden sm:block min-h-[100vh]">
-      <div className="logo pt-2">
-        {/* <img src={logo} className="w-[175px] mx-4 mt-10 lg:mt-16" alt="logo" /> */}
-        <h1 className="p-4 mt-8 bg-gray-200 mx-4 rounded-xl text-slate-700 font-semibold">
-          {value.email}
-        </h1>
-      </div>
+    <div className="relative bg-[#FFFFFF03] max-w-[250px] lg:w-[303px] text-[#FFFFFF66] shadow-sm text-md font-semibold hidden sm:block min-h-[100vh]">
       <div className="options text-start flex-col flex items-start mx-6 mt-8">
-        <h2>General</h2>
+        {/* <h2>General</h2> */}
         {tabs?.map((tab) => (
           <Tab
             text={tab}
@@ -33,7 +30,14 @@ function Sidebar({ tabs, selected, setSelected, value }) {
             key={tab}
           />
         ))}
+        <h1 className="flex w-full items-center text-lg gap-3 mt-5 px-4 p-3 bg-[#2f324156] mx4 rounded-xl text-[#FFFFFF66] font-semibold">
+          <FaUserCircle fontSize={30} />
+          {value.uname}
+        </h1>
       </div>
+      <h2 className="absolute bottom-3 pt-3 text-sm font-normal text-[#FFFFFF66] border-t border-[#FFFFFF0D] w-full">
+        &nbsp; &nbsp; Product version 1.0.0
+      </h2>
     </div>
   );
 }
@@ -46,8 +50,8 @@ const Tab = ({ text, selected, setSelected, icon, tabs }) => {
     >
       <button
         className={`${
-          selected ? `bg-blue-100 transition-all ` : ""
-        } flex gap-3 min-w-[250px] py-3 rounded-lg px-4 mt-3 hover:bg-blue-100 active:bg-blue-100`}
+          selected ? `bg-[#0C0D18] transition-all ` : ""
+        } flex items-center gap-3 min-w-[200px] py-4 rounded-lg px-4 mt-3 hover:bg-[#2f324156] active:bg-[#2f324156]`}
       >
         {icon[tabs.indexOf(text)]}
         {text}

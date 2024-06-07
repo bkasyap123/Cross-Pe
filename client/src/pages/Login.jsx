@@ -84,7 +84,7 @@ function Login() {
                   disabled={loading}
                   value={data.pwd}
                   onChange={(e) => setData({ ...data, pwd: e.target.value })}
-                  className="block bg-[#FFFFFF0D] w-full border-none rounded-xl border border-gray-300 p-4 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
+                  className="block bg-[#FFFFFF0D] w-full border-none text-gray-900 rounded-xl border border-gray-300 p-4 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent sm:text-sm sm:leading-6"
                 />
               </div>
             </div>

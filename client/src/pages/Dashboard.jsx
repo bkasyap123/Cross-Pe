@@ -5,7 +5,7 @@ import api from "../service/api";
 import { AuthContext } from "../Context.jsx";
 import Head from "../components/Profile/Head.jsx";
 
-const tabs = ["Dashboard", "Requests", "Clients", "Profile"];
+const tabs = ["Dashboard", "Invoices", "Clients", "Analytics", "Referrals"];
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ function Dashboard() {
         },
       })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setUser(res.data);
       })
       .catch((err) => {
@@ -38,8 +38,13 @@ function Dashboard() {
   return (
     <>
       <Head />
-      <div className="grid sm:grid-cols-[auto,1fr]">
-        <Sidebar value={user} selected={selected} setSelected={setSelected} tabs={tabs} />
+      <div className="grid sm:grid-cols-[auto,1fr] text-[#FFFFFF66] bg-gradient-to-b from-gradient-start to-gradient-end">
+        <Sidebar
+          value={user}
+          selected={selected}
+          setSelected={setSelected}
+          tabs={tabs}
+        />
         <Outlet />
       </div>
     </>
