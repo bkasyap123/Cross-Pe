@@ -35,6 +35,7 @@ function Dashboard() {
   if (user.email != usermail) {
     return navigate("/waitlist");
   }
+
   return (
     <>
       <Head />

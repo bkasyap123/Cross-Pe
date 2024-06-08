@@ -10,18 +10,27 @@ import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import Flag from "react-world-flags";
 import { Link } from "react-router-dom";
-import { TbMathGreater } from "react-icons/tb";
+import { TbBorderRadius, TbMathGreater } from "react-icons/tb";
+import Currency from "./Currency";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  "& .MuiDialogContent-root": {
+  "& .MuiDialog-paper": {
     padding: theme.spacing(2),
+    maxWidth: "470px",
+    color: "#fff",
+    overflow: "hidden",
+    backgroundColor: "#1D1E28",
+    borderRadius: "16px",
+    "@media (max-width: 500px)": {
+      minWidth: "90vw",
+    },
   },
   "& .MuiDialogActions-root": {
     padding: theme.spacing(1),
   },
 }));
 
-export default function Modal({ modal, setModal, flag }) {
+export default function Modal({ modal, setModal, flag, value }) {
   const handleClose = () => {
     setModal(false);
   };
@@ -35,8 +44,9 @@ export default function Modal({ modal, setModal, flag }) {
         open={modal}
       >
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
-          Complete Verification
+          Add Currency
         </DialogTitle>
+        <div className="border border-[#FFFFFF0D] mb-3"></div>
         <IconButton
           aria-label="close"
           onClick={handleClose}
@@ -44,26 +54,44 @@ export default function Modal({ modal, setModal, flag }) {
             position: "absolute",
             right: 8,
             top: 8,
+
             color: (theme) => theme.palette.grey[500],
           }}
         >
           <CloseIcon />
         </IconButton>
-        <DialogContent dividers>
+        <DialogContent
+          dividers
+          style={{ padding: "8px" }}
+          className="m:flex flex-col max-sm:p-0"
+        >
           <Typography gutterBottom>
-            Please complete the KYC to get your international account in just 2
-            minutes.
+            {value.map((v, idx) => (
+              <Currency key={idx} value={v} />
+            ))}
+            <div className="border border-[#FFFFFF0D]"></div>
+            <button className="bg-[#0000003D] text-sm text-[#5A60FF] w-full text-start py-3 px-5 my-5 rounded-lg font-semibold">
+              + Request more Currency
+            </button>
+            <p className="text-[#FFFFFF66] text-sm max-sm:text-[10px]">
+              Note that the “other currencies” will take sometime to get
+              featured in our popular currency list due to some operational
+              constraint. We will get back to you once it’s implemented
+            </p>
           </Typography>
         </DialogContent>
         <DialogActions>
-          <Link to="/dashboard/profile">
+          <span>
             <button
               onClick={handleClose}
-              className="bg-blue-500 text-center py-2 px-4 rounded-md text-white mx-auto"
+              className="mr-6 rounded-xl bg-[#FFFFFF0D] p-4 max-sm:py-3"
             >
-              Complete KYC
+              Cancel
             </button>
-          </Link>
+            <button className="bg-[#343BFF] rounded-xl py-4 px-6 max-sm:py-3 max-sm:px-5">
+              Add
+            </button>
+          </span>
         </DialogActions>
       </BootstrapDialog>
     </>

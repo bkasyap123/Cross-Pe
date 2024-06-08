@@ -1,4 +1,4 @@
-import logo from "../../assets/easypayZ-logo.png";
+import logo from "../../assets/easypayZ-logo.webp";
 import { FaLinkedin } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { IoCallOutline } from "react-icons/io5";

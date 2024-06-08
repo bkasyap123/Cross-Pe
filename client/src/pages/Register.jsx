@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import logo from ".././assets/easypayZ-logo.png";
+import logo from ".././assets/easypayZ-logo.webp";
 import api from "../service/api";
 import { useNavigate, Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";

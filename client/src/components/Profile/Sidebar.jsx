@@ -1,4 +1,4 @@
-import logo from "../../assets/easypayZ-logo.png";
+import logo from "../../assets/easypayZ-logo.webp";
 import { RiDashboard2Line } from "react-icons/ri";
 import { LuReceipt } from "react-icons/lu";
 import { FaUsersLine } from "react-icons/fa6";

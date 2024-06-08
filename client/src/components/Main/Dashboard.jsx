@@ -1,39 +1,12 @@
 import React from "react";
-import api from "../../service/api.js";
-import { useState, useEffect, useContext } from "react";
 import Kyc from "../Profile/Kyc";
-import Account from "../Profile/Account";
-import { AuthContext } from "../../Context.jsx";
+// import Account from "../Profile/Account";
 
-function Dashboard() {
-  const [user, setUser] = useState({});
-  const { isLoggedIn } = useContext(AuthContext);
-
-  let usermail = import.meta.env.VITE_ADMIN;
-
-  useEffect(() => {
-    api
-      .get("/dashboard", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      })
-      .then((res) => {
-        // console.log(res.data);
-        setUser(res.data);
-      })
-      .catch((err) => {
-        err.response.status == 401 ? navigate("/login") : "";
-        console.log(err.response);
-      });
-  }, [isLoggedIn]);
-
+export default function Dashboard() {
   return (
     <div>
-      <Kyc value={user} />
+      <Kyc />
       {/* <Account /> */}
     </div>
   );
 }
-
-export default Dashboard;

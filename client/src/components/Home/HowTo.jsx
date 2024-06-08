@@ -1,9 +1,9 @@
 import React from "react";
-import img1 from "../../assets/image6.png";
-import img2 from "../../assets/image7.png";
-import img3 from "../../assets/image8.png";
-import img4 from "../../assets/image9.png";
-import img5 from "../../assets/image10.png";
+import img1 from "../../assets/image6.webp";
+import img2 from "../../assets/image7.webp";
+import img3 from "../../assets/image8.webp";
+import img4 from "../../assets/image9.webp";
+import img5 from "../../assets/image10.webp";
 import { FaArrowRightLong } from "react-icons/fa6";
 
 function HowTo() {

@@ -1,5 +1,5 @@
 import { AiOutlinePlayCircle } from "react-icons/ai";
-import img from "../../assets/image.png";
+import img from "../../assets/image.webp";
 
 function Demo() {
   return (

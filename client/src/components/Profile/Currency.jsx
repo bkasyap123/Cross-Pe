@@ -1,35 +1,16 @@
 import Flag from "react-world-flags";
-import { TbMathGreater } from "react-icons/tb";
-import { useState } from "react";
+import "../../App.css";
 
-function Currency({ flag, setModal }) {
-  const [active, setActive] = useState(false);
-
-  const handleClick = () => {
-    setActive(!active);
-    setModal(true);
-  };
-
+export default function Currency({ value }) {
   return (
-    <div
-      onClick={handleClick}
-      className={`${
-        active ? `bg-gradient-to-b from-blue-300 to-blue-400 text-white` : ``
-      }  p-6 mx-3 rounded-lg my-4 lg:min-w-[270px] border shadow-sm`}
-    >
-      <div className="flex gap-4">
-        <Flag code={flag.flag} width={34} />
-        <span>
-          <p className={`${active ? `text-semibold` : ``}`}>{flag.name}</p>
-          <p className="text-[13px] text-blue-500">USD</p>
-        </span>
+    <div className="flex justify-between items-center mb-6 w-full max-[430px]:bg-blue-400">
+      <div className="flex items-center gap-5">
+        <Flag code={value.flag} width={34} />
+        <h2 className="text-sm">{value.name}</h2>
       </div>
-
-      <p className="flex justify-between items-center mt-5">
-        USD 0.00 <TbMathGreater fontSize={20} />
-      </p>
+      <div>
+        <input type="checkbox" className="size-5" />
+      </div>
     </div>
   );
 }
-
-export default Currency;

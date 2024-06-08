@@ -1,7 +1,7 @@
 // import icon from "../../assets/globe.png";
 // import icon from "../../assets/bank_vector.png";
 // import icon from "../../assets/global.webp";
-import icon from "../../assets/image.png";
+import icon from "../../assets/image.webp";
 import { Link } from "react-router-dom";
 
 function Hero() {

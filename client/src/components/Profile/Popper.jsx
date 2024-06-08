@@ -24,7 +24,7 @@ export default function UserAction() {
   return (
     <div className="">
       <Button aria-describedby={id} onClick={handleClick}>
-        <FaUserCircle fontSize={30} />
+        <FaUserCircle fontSize={28} />
       </Button>
       <Popover
         id={id}

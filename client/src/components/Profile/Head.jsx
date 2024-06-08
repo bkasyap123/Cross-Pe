@@ -1,4 +1,4 @@
-import logo from "../../assets/easypayZ-logo.png";
+import logo from "../../assets/easypayZ-logo.webp";
 import UserAction from "./Popper.jsx";
 import { FaRegBell } from "react-icons/fa";
 import * as React from "react";
@@ -21,11 +21,16 @@ function Head() {
   const id = open ? "simple-popover" : undefined;
 
   return (
-    <div className="w-full flex items-center justify-between px-3 md:px-6 py-3 shadow bg-[#0D0E16]">
-      <img src={logo} alt="logo" className="w-[150px]" />
+    <div className="w-full flex items-center justify-between px-2 md:px-6 py-3 shadow bg-[#0D0E16]">
+      <img src={logo} alt="logo" className="w-[150px] max-sm:w-[125px]" />
       <span className="flex items-center">
         <Button aria-describedby={id} onClick={handleClick}>
-          <FaRegBell fontSize={30} fill="skyBlue" onClick={handleClick} />
+          <FaRegBell
+            fontSize={25}
+            fill="skyBlue"
+            onClick={handleClick}
+            className="max-sm:hidden"
+          />
         </Button>
         <Popover
           id={id}

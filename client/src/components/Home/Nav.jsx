@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../../assets/easypayZ-logo.png";
+import logo from "../../assets/easypayZ-logo.webp";
 import { IoMenu } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context";

@@ -1,16 +1,46 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 // import kycImg from "../../assets/image11.png";
-import kycImg from "../../assets/Frame 16.png";
-import kycImg2 from "../../assets/Group 4.png";
-import kycImg3 from "../../assets/image11.png";
-import { FaArrowRight } from "react-icons/fa6";
+import kycImg from "../../assets/Frame 16.webp";
+import kycImg2 from "../../assets/Group 4.webp";
+import kycImg3 from "../../assets/image11.webp";
+import { AuthContext } from "../../Context.jsx";
+import Modal from "./Modal.jsx";
+import api from "../../service/api.js";
+import { useContext } from "react";
 
-function Kyc({ value }) {
+function Kyc() {
+  const [modal, setModal] = useState(false);
+  const [user, setUser] = useState({});
+  const { isLoggedIn } = useContext(AuthContext);
+
+  let countries = [
+    { flag: "EU", name: "Euro" },
+    { flag: "GB", name: "Great Britain Pound" },
+    { flag: "USA", name: "United States Dollar" },
+    { flag: "CA", name: "Canadian Dollar" },
+  ];
+
+  useEffect(() => {
+    api
+      .get("/dashboard", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => {
+        // console.log(res.data);
+        setUser(res.data);
+      })
+      .catch((err) => {
+        err.response.status == 401 ? navigate("/login") : "";
+        console.log(err.response);
+      });
+  }, [isLoggedIn]);
+
   return (
     <div className="relative h-screen max-sm:text-center mx-4 my-6 sm:mx-10 sm:my-5 max-md:flex-col fex justify-between sm:p8 rounded-xl">
       <div className="max-sm:my-16">
-        <h2 className="text-4xl text-white">Welcome {value.uname}!</h2>
+        <h2 className="text-4xl text-white">Welcome {user?.uname}!</h2>
         <p className="text-[#FFFFFF66] text-lg my-3 font-normal max-sm:px-5">
           Here are your actions and dashboard! Should face any difficulties,
           email us at <em className="text-[#5A60FF]">help@crosspe.com</em>
@@ -40,11 +70,20 @@ function Kyc({ value }) {
           <button className="mx-20 mb-5 py-3 bg-[#FFFFFF0D] my-4 rounded-xl sm:px-5">
             Complete KYC →
           </button>
-          <button className="mx-14 py-3 bg-[#343BFF] rounded-xl">
+          <button
+            onClick={() => setModal(true)}
+            className="mx-14 py-3 bg-[#343BFF] rounded-xl"
+          >
             Add Virtual Account +
           </button>
         </div>
       </div>
+      <Modal
+        value={countries}
+        modal={modal}
+        setModal={setModal}
+        flag={countries}
+      />
     </div>
   );
 }
