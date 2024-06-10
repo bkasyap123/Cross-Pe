@@ -3,7 +3,7 @@ import "../../App.css";
 
 export default function Currency({ value }) {
   return (
-    <div className="flex justify-between items-center mb-6 w-full max-[430px]:bg-blue-400">
+    <div className="flex justify-between items-center mb-6 w-full">
       <div className="flex items-center gap-5">
         <Flag code={value.flag} width={34} />
         <h2 className="text-sm">{value.name}</h2>

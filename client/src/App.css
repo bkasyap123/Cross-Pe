@@ -5,7 +5,8 @@
 
 #root {
   box-sizing: border-box;
-  /* background: black; */
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
   overflow-x: hidden;
 }
 

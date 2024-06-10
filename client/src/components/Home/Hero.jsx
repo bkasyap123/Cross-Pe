@@ -1,6 +1,5 @@
-// import icon from "../../assets/globe.png";
-// import icon from "../../assets/bank_vector.png";
-// import icon from "../../assets/global.webp";
+// import img from "../../assets/image12.webp";
+// import img2 from "../../assets/image13.webp";
 import icon from "../../assets/image.webp";
 import { Link } from "react-router-dom";
 
