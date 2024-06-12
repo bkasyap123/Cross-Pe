@@ -7,7 +7,7 @@ function Subscribe() {
         Join the waitlist
       </h1>
       <h3 className="font-semibold sm:text-lg">
-        Sign up now and get 20% discount on international payment fees
+        Sign up now and get instant discount on international payment fees
       </h3>
       <input
         type="email"
