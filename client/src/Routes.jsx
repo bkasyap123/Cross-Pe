@@ -12,8 +12,8 @@ const Profile = lazy(() => import("./components/Main/Profile.jsx"));
 const Invoices = lazy(() => import("./components/Main/Invoices.jsx"));
 const Analytics = lazy(() => import("./components/Main/Analytics.jsx"));
 const Referral = lazy(() => import("./components/Main/Referrals.jsx"));
-const TermsAndCondition=lazy(()=>import ("./components/pages/TermsAndCondition.jsx"));
-const PrivacyPolicy=lazy(()=>import ("./components/pages/PrivacyPolicy.jsx"));
+const TermsAndCondition=lazy(()=>import ("./pages/TermsAndCondition.jsx"));
+const PrivacyPolicy=lazy(()=>import ("./pages/PrivacyPolicy.jsx"));
 
 const routes = [
   { path: "/", element: <Home /> },
