@@ -16,11 +16,11 @@ function Demo() {
           business expanding globally, or just someone who needs to convert
           currencies, we’ve got you covered.
         </p>
-        <button className="bg-[#1C1C1C] py-4 px-5 rounded-xl mt-16 max-sm:mt-10">
+        {/* <button className="bg-[#1C1C1C] py-4 px-5 rounded-xl mt-16 max-sm:mt-10">
           <span className="flex items-center gap-2 text-sm">
             Watch Demo <AiOutlinePlayCircle fontSize={18} />
           </span>
-        </button>
+        </button> */}
       </div>
       <img
         src={img}

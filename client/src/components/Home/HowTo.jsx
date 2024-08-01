@@ -38,9 +38,9 @@ function HowTo() {
               All cash balances are covered by FDIC insurance, up to a maximum
               of $250,000.
             </p>
-            <span className="flex items-center gap-2 text-[#5A60FF]">
+            {/* <span className="flex items-center gap-2 text-[#5A60FF]">
               See Explained <FaArrowRightLong />
-            </span>
+            </span> */}
           </div>
         </div>
         <div className="bg-[#0057FF17] sm:ml-8 max-sm:mt-10 flex flex-col max-w-[280px] max-sm:py-10 max-sm:max-w-[490px] p-5 rounded-2xl">
@@ -53,9 +53,9 @@ function HowTo() {
               All cash balances are covered by FDIC insurance, up to a maximum
               of $250,000.
             </p>
-            <span className="flex items-center gap-2 text-[#5A60FF]">
+            {/* <span className="flex items-center gap-2 text-[#5A60FF]">
               See Explained <FaArrowRightLong />
-            </span>
+            </span> */}
           </div>
         </div>
         <div className="sm:ml-20 max-sm:mt-10">

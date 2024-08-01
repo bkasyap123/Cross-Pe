@@ -71,11 +71,11 @@ function Benifit() {
             </p>
           </div>
         </div>
-        <button className="bg-[#343BFF] font-semibold text-[#fff] rounded-xl py-3 px-4 max-sm:mt-6 mt-10">
+        {/* <button className="bg-[#343BFF] font-semibold text-[#fff] rounded-xl py-3 px-4 max-sm:mt-6 mt-10">
           <li className="list-none flex items-center gap-3">
             Learn more <LuMoveRight fontSize={25} />
           </li>
-        </button>
+        </button> */}
       </div>
     </div>
   );
