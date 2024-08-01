@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import logo from ".././assets/easypayZ-logo.webp";
+import logo from ".././assets/crosspelogo.webp";
 import api from "../service/api";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -53,8 +53,9 @@ function Login() {
       <ToastContainer />
       {loading ? <Spinner /> : ""}
       <div className="flex bg-gradient-to-r from-gradient-start to-gradient-end h-[100vh] text-[#fff] flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <img className="mx-auto h-10 w-auto" src={logo} alt="Your Company" />
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm mb-6" style={{display:"flex", justifyContent:"center",width:"110px", alignItems:"center"}}>
+          <img className="mx-auto h-10 w-auto" style={{width:"140px", height:"80px"}} src={logo} alt="Your Company" />
+          <p style={{marginRight:"10px",fontSize:"25px",marginLeft:"-15px",marginTop:"10px"}}>Crosspe</p>
         </div>
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6" onSubmit={handleSubmit}>
